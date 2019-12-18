@@ -1,14 +1,19 @@
  <div class="container">
 
- <div class="card d-flex">
+ <div class="card">
   <% @count = 0 %>
     <% @products.each do |product| %>
     <% if @count < 10 %>
-    <img src= <%= "#{product['images'][0]['src']}" %> >
-    <%= product['variants'][0]['option1'] %>//
-    <% if  product['variants'][0]['option2'] =!'sans'%>
-      <%= product['variants'][0]['option2'] %>
-       <% end %>
+    <div class="card row " style="width: 18rem;">
+      <img class="card-img-top" src=<%= "#{product['images'][0]['src']}" %> alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"> <%= product['variants'][0]['option1'] %>
+        <%= product['variants'][0]['option2'] %>
+        </h5>
+        <p class="card-text"> <%= product['variants'][0]['price'] %> </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
     <% @count += 1 %>
     <% end %>
   <% end %>
