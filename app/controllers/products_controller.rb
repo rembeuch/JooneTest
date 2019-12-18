@@ -5,7 +5,8 @@ class ProductsController < ApplicationController
   def index
     @hash = File.read("joone.json")
     @products_json = JSON.parse(@hash)['products']
-    @products = @products_json[1]['variants'][0..9]
-    @images = @products_json[1]['images'][0..4]
+    # render :json => @products_json
+    @products = @products_json
+    # @images = @products_json[1]['images'][0..4]
   end
 end
