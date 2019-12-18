@@ -1,0 +1,11 @@
+ <div class="container">
+
+ <div class="card d-flex">
+  <% @images.each do |image| %>
+    <img src=<%="#{image['src']}"  %> >
+  <% end %>
+ <%  @products.each do |product, index| %>
+ <%= product['option1'] %>/ <%= product['price'] %>€
+ <% end %>
+</div>
+</div>

@@ -3,9 +3,9 @@ class ProductsController < ApplicationController
   require 'open-uri'
 
   def index
-    url = 'https://734b93edaeb60470f95ef7240dc0b262:1ca54a7201761c040e09eac2b039324f@joone.myshopify.com/admin/api/2019-10/products.json'
-    products_serialized = open(url).read
-    products = JSON.parse(products_serialized)
-    raise
+    @hash = File.read("joone.json")
+    @products_json = JSON.parse(@hash)['products']
+    @products = @products_json[1]['variants'][0..9]
+    @images = @products_json[1]['images'][0..4]
   end
 end
